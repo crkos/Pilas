@@ -12,36 +12,71 @@ public class Pila {
 	}
 	
 	public void insertar(int valor) {
-		
+		if (llena() == true) {
+            System.out.println("La pila esta llena, no se pueden insertar mas datos!");
+        }
+        else{
+            cima = cima+1;
+            espacio[cima] = valor;
+            System.out.println("Se inserto el dato en la pila!");
+        }
 	}
 	
 	public int quitar() {
-	
-		return 0; //Modificar por el valor que se quita
+        int datoExtraido = espacio[cima];
+        if (vacia() == true) {
+            System.out.println("La pila esta vacia, no se puede sacar un dato");
+        }
+        else{
+            cima = cima-1;
+        }
+        System.out.println("Dato extraido de la pila: "+ datoExtraido);
+		return datoExtraido; //Modificar por el valor que se quita
 	}
 	
 	public boolean vacia() {
-		
-		return false; //Cambiar dependiendo del resultado
+		if (cima == -1) {
+            System.out.println("La pila esta vacia!");
+            return true;
+        }
+        else{
+            System.out.println("La pila no esta vacia!");
+            return false;
+        }
 	}
 	
 	public boolean llena() {
-		
-		
-		return true; //Cambiar dependiendo del resultado
+		if(cima > tamanio()-1){
+            System.out.println("La pila esta llena!");
+            return true;
+        }
+        else{
+            System.out.println("La pila no esta llena!");
+            return false;
+        }
 	}
 	
 	public int mostrarCima() {
-		
-		return 0; //Cambiar por el valor de la cima
+        int ultimoElemento = espacio[cima];
+		if (vacia() == true) {
+            System.out.println("La pila esta vacia!");
+        }
+        else{
+            System.out.println("La cima es: "+ultimoElemento);
+        }
+        return ultimoElemento;    
+        //Cambiar por el valor de la cima
 	}
 	
 	public void vaciar() {
-		
+		cima = -1;
+        System.out.println("Se ha vaciado la pila");
 	}
 	
 	public int tamanio() {
-		
-		return 0; //Cambiar por el valor del tama�o
+        int tam;
+		tam = cima+1;
+        System.out.println(("El tamano de la pila es: "+tam));
+		return tam; //Cambiar por el valor del tamano
 	}
 }
