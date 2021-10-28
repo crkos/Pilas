@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
         public static void main(String[] args) throws Exception {
-            Pila pila = new Pila(100);
+            Pila pila = new Pila(2);
             int seleccion = 0;
             Scanner in = new Scanner(System.in);
 
@@ -23,6 +23,7 @@ public class Main {
                     switch(seleccion)
                     {
                     case 1:
+                    
                         int insertar;
                         System.out.print("Escribe el numero a insertar: ");
                         insertar = in.nextInt();

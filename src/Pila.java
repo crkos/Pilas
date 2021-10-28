@@ -12,7 +12,8 @@ public class Pila {
 	}
 	
 	public void insertar(int valor) {
-		if (llena() == true) {
+        boolean llena = llena();
+		if (llena == true) {
             System.out.println("La pila esta llena, no se pueden insertar mas datos!");
         }
         else{
@@ -20,11 +21,11 @@ public class Pila {
             espacio[cima] = valor;
             System.out.println("Se inserto el dato en la pila!");
         }
-	}
-	
+    }
 	public int quitar() {
         int datoExtraido = espacio[cima];
-        if (vacia() == true) {
+        boolean vacia = vacia();
+        if (vacia == true) {
             System.out.println("La pila esta vacia, no se puede sacar un dato");
         }
         else{
@@ -46,14 +47,18 @@ public class Pila {
 	}
 	
 	public boolean llena() {
-		if(cima > tamanio()-1){
+        int tamano;
+        tamano = tamanio();
+		if(tamano >= max){
             System.out.println("La pila esta llena!");
             return true;
         }
         else{
             System.out.println("La pila no esta llena!");
-            return false;
+            
         }
+        return false;
+    
 	}
 	
 	public int mostrarCima() {
